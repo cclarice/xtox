@@ -12,7 +12,7 @@
 /*                                                                            */
 /*   strtoul.c                                cclarice@student.21-school.ru   */
 /*                                                                            */
-/*   Created/Updated: 2021/05/01 19:00:25  /  2021/05/02 16:40:30 @cclarice   */
+/*   Created/Updated: 2021/05/03 04:59:01  /  2021/05/03 05:00:14 @cclarice   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ unsigned long	ft_strtoul(char *str)
 		ret *= 10;
 		ret += *str - '0';
 		if (ret <= 9)
-			return (0xffffffffffffffff)
+			return (0xffffffffffffffff);
 		str++;
 	}
 	return (ret);

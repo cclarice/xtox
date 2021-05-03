@@ -12,13 +12,13 @@
 /*                                                                            */
 /*   atoi.c                                   cclarice@student.21-school.ru   */
 /*                                                                            */
-/*   Created/Updated: 2021/05/01 19:00:25  /  2021/05/02 17:36:03 @cclarice   */
+/*   Created/Updated: 2021/05/03 05:36:04  /  2021/05/03 05:36:17 @cclarice   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../xtox.h"
 
-int	ternar(char a, char b, int c, int d)
+int	ternar_sgn(char a, char b, int c, int d)
 {
 	if (a == b)
 		return (d);
@@ -28,7 +28,7 @@ int	ternar(char a, char b, int c, int d)
 
 int	ft_atoi(char *str)
 {
-	const char	sgn = ternar(*str, '-', 1, -1);
+	const char	sgn = ternar_sgn(*str, '-', 1, -1);
 	int			ret;
 
 	ret = 0;

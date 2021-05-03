@@ -12,7 +12,7 @@
 /*                                                                            */
 /*   strtoui.c                                cclarice@student.21-school.ru   */
 /*                                                                            */
-/*   Created/Updated: 2021/05/02 16:52:54  /  2021/05/02 17:00:48 @cclarice   */
+/*   Created/Updated: 2021/05/03 05:00:10  /  2021/05/03 05:00:19 @cclarice   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ unsigned int	ft_strtoui(char *str)
 		ret *= 10;
 		ret += *str - '0';
 		if (ret <= 9)
-			return (0xffffffff)
+			return (0xffffffff);
 		str++;
 	}
 	return (ret);

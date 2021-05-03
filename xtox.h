@@ -12,7 +12,7 @@
 /*                                                                            */
 /*   xtox.h                                   cclarice@student.21-school.ru   */
 /*                                                                            */
-/*   Created/Updated: 2021/05/01 20:54:59  /  2021/05/02 17:00:45 @cclarice   */
+/*   Created/Updated: 2021/05/03 05:36:42  /  2021/05/03 05:36:49 @cclarice   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@
 
 int				ft_atoi(char *str);
 long			ft_atol(char *str);
-unsigned long	ft_strtoui(char *str);
+unsigned int	ft_strtoui(char *str);
 unsigned long	ft_strtoul(char *str);
+int				ternar_sgn(char a, char b, int c, int d);
 
 #endif

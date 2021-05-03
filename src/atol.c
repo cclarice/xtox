@@ -12,23 +12,15 @@
 /*                                                                            */
 /*   atol.c                                   cclarice@student.21-school.ru   */
 /*                                                                            */
-/*   Created/Updated: 2021/05/01 19:00:25  /  2021/05/02 16:40:23 @cclarice   */
+/*   Created/Updated: 2021/05/03 05:37:07  /  2021/05/03 05:37:16 @cclarice   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../xtox.h"
 
-int	ternar(char a, char b, int c, int d)
-{
-	if (a == b)
-		return (d);
-	else
-		return (c);
-}
-
 long	ft_atol(char *str)
 {
-	const char	sgn = ternar(*str, '-', 1, -1);
+	const char	sgn = ternar_sgn(*str, '-', 1, -1);
 	long		ret;
 
 	ret = 0;

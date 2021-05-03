@@ -12,7 +12,7 @@
 #                                                                              #
 #    Makefile                                 cclarice@student.21-school.ru    #
 #                                                                              #
-#    Created/Updated: 2021/05/01 17:41:13  /  2021/05/03 03:33:56 @cclarice    #
+#    Created/Updated: 2021/05/03 05:39:00  /  2021/05/03 05:39:14 @cclarice    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ HEAD = xtox.h
 
 # TEST
 TEST = test_xtox.c
-TSMN = test_xtox
+TSTN = test_xtox
 
 # SRCS
 SRCF = src
@@ -47,7 +47,7 @@ OBJF = obj
 OBJS = $(patsubst src/%.c, obj/%.o, $(SRCS))
 
 # COMPILE
-FLAG = -Wall -Wextra -Werror -O4
+FLAG = -Wall -Wextra -Werror -O3
 MKDR = mkdir -p
 S    = echo -e
 RM   = rm -rf
@@ -58,40 +58,39 @@ AR   = ar rc
 all: start $(OBJF) $(NAME) done
 
 start:
-	@echo "Start [all]\n" 
+	@$S "Start [all]\n" 
 
 obj/%.o: src/%.c $(HEAD)
 	@$(CC) $(FLAG) -c $< -o $@
 	$(BUILD)
-	@echo "Compiling $@ > $<"
+	@$S "Compiling $@ > $<"
 
 $(OBJF):
 	$(MKDR) $(OBJF)
 
 $(NAME): $(OBJS)
-	ar rc $?sd
+	ar rc $(NAME) $(OBJS)
 
 done:
-	@echo "\033[0mDone [all]"
+	@$S "\033[0mDone [all]"
 
 # Test Rule
 test: all
-	@$(CC) $(FLAG)
+	@$(CC) $(FLAG) $(TEST) $(NAME) -o $(TSTN)
 
-# Clean Rule
-
+# Clean Rules
 clean:
-	@echo "Start [clean]"
+	@$S "Start [clean]"
 	@$(RM) $(OBJF)
-	@echo "\033[31mRemoving $(OBJF)\033[0m"
-	@echo "Done [clean]"
+	@$S "\033[31mRemoving $(OBJF)\033[0m"
+	@$S "Done [clean]"
 
 fclean:
-	@echo "Start [fclean]"
+	@$S "Start [fclean]"
 	@$(RM) $(OBJF)
-	@echo "\033[31mRemoving $(OBJF)\033[0m"
-	@$(RM) $(NAME)
-	@echo "\033[31mRemoving $(NAME)\033[0m"
-	@echo "Done [fclean]"
+	@$S "\033[31mRemoving $(OBJF)\033[0m"
+	@$(RM) $(NAME) $(TSTN)
+	@$S "\033[31mRemoving $(NAME)\033[0m"
+	@$S "Done [fclean]"
 
-re: fclean all
+re: fclean all test
