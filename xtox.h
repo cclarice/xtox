@@ -12,17 +12,23 @@
 /*                                                                            */
 /*   xtox.h                                   cclarice@student.21-school.ru   */
 /*                                                                            */
-/*   Created/Updated: 2021/05/03 05:36:42  /  2021/05/03 05:36:49 @cclarice   */
+/*   Created/Updated: 2021/05/09 20:25:48  /  2021/05/09 20:26:00 @cclarice   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef XTOX_H
 # define XTOX_H
 
-int				ft_atoi(char *str);
-long			ft_atol(char *str);
-unsigned int	ft_strtoui(char *str);
-unsigned long	ft_strtoul(char *str);
+# include <stdlib.h>
+
+int				ft_atoi(const char *str);
+long			ft_atol(const char *str);
+double			ft_atod(const char *str);
+unsigned int	ft_atoui(const char *str);
+unsigned long	ft_atoul(const char *str);
 int				ternar_sgn(char a, char b, int c, int d);
+
+char			*ft_itoa(int i);
+char			*ft_ltoa(long i);
 
 #endif

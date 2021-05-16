@@ -12,7 +12,7 @@
 #                                                                              #
 #    Makefile                                 cclarice@student.21-school.ru    #
 #                                                                              #
-#    Created/Updated: 2021/05/03 05:39:00  /  2021/05/03 05:39:14 @cclarice    #
+#    Created/Updated: 2021/05/09 19:15:49  /  2021/05/10 20:30:20 @cclarice    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,12 @@ TSTN = test_xtox
 
 # SRCS
 SRCF = src
-SRC  = atoi.c atol.c strtoui.c strtoul.c
+SRC  = ft_atoi.c    ft_itoa.c \
+       ft_atol.c    ft_ltoa.c \
+       ft_atod.c  \
+       ft_atoui.c \
+       ft_atoul.c
+
 SRCS = $(addprefix $(SRCF)/, $(SRC))
 
 # OBJS
@@ -75,8 +80,11 @@ done:
 	@$S "\033[0mDone [all]"
 
 # Test Rule
-test: all
+test: all $(NAME)
+	@$S "Start [test]"
 	@$(CC) $(FLAG) $(TEST) $(NAME) -o $(TSTN)
+	@$S "\033[32mCompiling $(TSTN)"
+	@$S "\033[0mDone [test]"
 
 # Clean Rules
 clean:
@@ -89,8 +97,16 @@ fclean:
 	@$S "Start [fclean]"
 	@$(RM) $(OBJF)
 	@$S "\033[31mRemoving $(OBJF)\033[0m"
-	@$(RM) $(NAME) $(TSTN)
+	@$(RM) $(NAME)
 	@$S "\033[31mRemoving $(NAME)\033[0m"
+	@$(RM) $(TSTN)
+	@$S "\033[31mRemoving $(TSTN)\033[0m"
 	@$S "Done [fclean]"
 
-re: fclean all test
+# My temp rule
+temp: clearscreen test
+	@./test_xtox
+	@norminette src
+
+clearscreen:
+	@clear

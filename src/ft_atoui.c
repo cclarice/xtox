@@ -10,20 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 /*                                                                            */
-/*   strtoul.c                                cclarice@student.21-school.ru   */
+/*   strtoui.c                                cclarice@student.21-school.ru   */
 /*                                                                            */
-/*   Created/Updated: 2021/05/03 04:59:01  /  2021/05/03 05:00:14 @cclarice   */
+/*   Created/Updated: 2021/05/08 20:40:20  /  2021/05/08 20:40:25 @cclarice   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../xtox.h"
 
-unsigned long	ft_strtoul(char *str)
+unsigned int	ft_atoui(const char *str)
 {
-	unsigned long	ret;
+	unsigned int	ret;
 
 	ret = 0;
-
 	while (*str == '0')
 		str++;
 	if (*str >= '1' && *str <= '9')
@@ -33,7 +32,7 @@ unsigned long	ft_strtoul(char *str)
 		ret *= 10;
 		ret += *str - '0';
 		if (ret <= 9)
-			return (0xffffffffffffffff);
+			return (0xffffffff);
 		str++;
 	}
 	return (ret);
